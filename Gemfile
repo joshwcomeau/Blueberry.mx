@@ -15,14 +15,14 @@ gem 'spring',                     group: :development
 gem 'angular-rails-templates'
 gem 'bourbon'           # Sass augmenter
 gem 'bower-rails'       # Front end package manager
-gem "foreman"           
+gem 'foreman'           
 gem 'neat'              # Semantic grid system
 gem 'quiet_assets'
 
 group :production, :staging do
-  gem "rails_12factor"
-  gem "rails_stdout_logging"
-  gem "rails_serve_static_assets"
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
 end
 
 group :test, :development do
