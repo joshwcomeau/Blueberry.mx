@@ -12,11 +12,18 @@ gem 'sdoc', '~> 0.4.0',           group: :doc
 gem 'spring',                     group: :development
 
 # Custom gems
+gem 'angular-rails-templates'
+gem 'bourbon'           # Sass augmenter
 gem 'bower-rails'       # Front end package manager
+gem "foreman"           
+gem 'neat'              # Semantic grid system
 gem 'quiet_assets'
 
-gem 'bourbon'           # Sass augmenter
-gem 'neat'              # Semantic grid system
+group :production, :staging do
+  gem "rails_12factor"
+  gem "rails_stdout_logging"
+  gem "rails_serve_static_assets"
+end
 
 group :test, :development do
   gem 'capybara'
