@@ -1,0 +1,1 @@
+blueberry = angular.module('blueberry', []);
