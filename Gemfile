@@ -18,7 +18,7 @@ gem 'bourbon'           # Sass augmenter
 gem 'bower-rails'       # Front end package manager
 gem 'foreman'           
 gem 'neat'              # Semantic grid system
-gem 'quiet_assets'
+gem 'quiet_assets'      # Most convenient gem ever
 
 group :production, :staging do
   gem 'rails_12factor'
@@ -27,11 +27,14 @@ group :production, :staging do
 end
 
 group :test, :development do
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
+  gem 'capybara'            # End-to-end feature tests
+  gem 'database_cleaner'    # Does what you'd think. Cleans DB between tests.
+  gem 'factory_girl_rails'  # <3 Thoughtbot
+  gem 'phantomjs'           # Headless Javascript engine
   gem 'rspec'
-  gem 'rspec-rails' # Unit testing
-  gem 'selenium-webdriver'
+  gem 'rspec-rails'       
+  gem 'selenium-webdriver'  
+  gem 'teaspoon'            # Front-end Javascript test runner
+
 end
 
