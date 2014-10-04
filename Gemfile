@@ -13,6 +13,7 @@ gem 'spring',                     group: :development
 
 # Custom gems
 gem 'angular-rails-templates'
+gem 'annotate', github: 'ctran/annotate_models'
 gem 'bourbon'           # Sass augmenter
 gem 'bower-rails'       # Front end package manager
 gem 'foreman'           

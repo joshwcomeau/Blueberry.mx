@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141003234632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mixes", force: true do |t|
+    t.string   "name"
+    t.text     "audio_url"
+    t.integer  "length"
+    t.text     "photo_url"
+    t.integer  "played"
+    t.integer  "liked"
+    t.integer  "downloaded"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
