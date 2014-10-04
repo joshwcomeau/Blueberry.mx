@@ -1,6 +1,7 @@
 blueberry = angular.module('blueberry', [
   'templates',
   'ngRoute',
+  'ngResource',
   'controllers'
 ]);
 
@@ -13,25 +14,22 @@ blueberry.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-function MixesController($scope, $routeParams, $location) {
+function MixesController($scope, $routeParams, $location, $resource) {
   this.search = function(keywords) {
     $location.path("/").search('keywords', this.keywords);
   }
-
-  console.log($routeParams);
 
   if ( $routeParams.keywords ) {
     search_term = $routeParams.keywords.toLowerCase();
     this.selectedMixes = mixlist.filter(function(mix) {
       return mix.name.toLowerCase().indexOf(search_term) != -1
     });
-    console.log(this.selectedMixes);
   } else {
     this.selectedMixes = []
   }
 }
 
-MixesController.$inject = ['$scope', '$routeParams', '$location']
+MixesController.$inject = ['$scope', '$routeParams', '$location', '$resource']
 
 controllers = angular.module('controllers', [])
 controllers.controller("MixesController", ['$scope', '$routeParams', '$location', MixesController])
