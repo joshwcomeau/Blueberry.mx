@@ -18,11 +18,16 @@ function MixesController($scope, $routeParams, $location, $resource) {
   this.search = function(keywords) {
     $location.path("/").search('keywords', this.keywords);
   }
+  var Mix = $resource('/mixes/:mixId', {
+    mixId: "@id",
+    format: 'json'
+  });
 
   if ( $routeParams.keywords ) {
-    search_term = $routeParams.keywords.toLowerCase();
-    this.selectedMixes = mixlist.filter(function(mix) {
-      return mix.name.toLowerCase().indexOf(search_term) != -1
+    Mix.query({
+      keywords: $routeParams.keywords
+    }, function(results) {
+      this.mixes = results
     });
   } else {
     this.selectedMixes = []
