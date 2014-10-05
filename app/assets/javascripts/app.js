@@ -8,7 +8,12 @@ blueberry = angular.module('blueberry', [
 blueberry.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl:  'index.html',
+    templateUrl:  'mixes/index.html',
+    controller:   'MixesController',
+    controllerAs: 'mixes'
+  })
+  .when('/mix/:id', {
+    templateUrl:  'mixes/show.html',
     controller:   'MixesController',
     controllerAs: 'mixes'
   });
@@ -18,10 +23,6 @@ function MixesController($scope, $routeParams, $location, $resource) {
   this.search = function(keywords) {
     $location.path("/").search('keywords', this.keywords);
   }
-  var Mix = $resource('/mixes/:mixId', {
-    mixId: "@id",
-    format: 'json'
-  });
 
   if ( $routeParams.keywords ) {
     Mix.query({
