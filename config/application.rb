@@ -27,8 +27,15 @@ module Blueberrymx
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Bower asset path
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
-
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
+    # Amazon S3 config
+    AWS::S3::Base.establish_connection!(
+      :access_key_id     => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    )
+    BUCKET = 'blueberrymx'
   end
 end

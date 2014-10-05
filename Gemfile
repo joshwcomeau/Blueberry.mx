@@ -12,21 +12,28 @@ gem 'sdoc', '~> 0.4.0',           group: :doc
 gem 'spring',                     group: :development
 
 # Custom gems
-gem 'angular-rails-templates'
-gem 'annotate', github: 'ctran/annotate_models'
+gem 'angular-rails-templates'     # Helps angular templates fetch assets from the pipeline   
+gem 'annotate'                    # Copies model DB info into the model rb files
+gem 'aws-s3', require: 'aws/s3'   # Amazon S3 
 gem 'bourbon'           # Sass augmenter
 gem 'bower-rails'       # Front end package manager
-gem 'foreman'           
+gem 'figaro'            # Managing secret keys through environment variables
+gem 'foreman'           # Process manager
 gem 'neat'              # Semantic grid system
+gem 'pry'               # Alternate console, used for debugging
+gem 'pry-byebug'        # Pry augmenter, lets you step through method calls line-by-line and batch exit.
 gem 'quiet_assets'      # Most convenient gem ever
-gem 'pry'
+
 
 group :production, :staging do
-  gem 'rails_12factor'
+  # First three for Heroku
+  gem 'rails_12factor'        
   gem 'rails_stdout_logging'
   gem 'rails_serve_static_assets'
+  # Last two for ShellyCloud
+  gem 'thin'
+  gem 'shelly-dependencies'
 end
-
 group :test, :development do
   gem 'capybara'            # End-to-end feature tests
   gem 'database_cleaner'    # Does what you'd think. Cleans DB between tests.

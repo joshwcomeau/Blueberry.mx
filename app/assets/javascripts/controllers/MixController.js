@@ -1,5 +1,5 @@
 function MixController($scope, $routeParams, MixFactory) {
-  this.mix = MixFactory.get({mixId: $routeParams.mixId}, function(mix) {
+  this.mixinfo = MixFactory.get({mixId: $routeParams.mixId}, function(mix) {
     // Do any view-related stuff here, like setting the background image or audio link.
   });
 }
