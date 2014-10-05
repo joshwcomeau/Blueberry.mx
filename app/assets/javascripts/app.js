@@ -2,7 +2,8 @@ blueberry = angular.module('blueberry', [
   'templates',
   'ngRoute',
   'ngResource',
-  'controllers'
+  'controllers',
+  'services'
 ]);
 
 blueberry.config(['$routeProvider', function($routeProvider) {
@@ -12,49 +13,36 @@ blueberry.config(['$routeProvider', function($routeProvider) {
     controller:   'MixesController',
     controllerAs: 'mixes'
   })
-  .when('/mix/:id', {
+  .when('/mix/:mixId', {
     templateUrl:  'mixes/show.html',
-    controller:   'MixesController',
-    controllerAs: 'mixes'
+    controller:   'MixController',
+    controllerAs: 'mix'
+  })
+  .otherwise({
+    redirectTo: '/'
   });
 }]);
 
-function MixesController($scope, $routeParams, $location, $resource) {
-  this.search = function(keywords) {
-    $location.path("/").search('keywords', this.keywords);
-  }
 
-  if ( $routeParams.keywords ) {
-    Mix.query({
-      keywords: $routeParams.keywords
-    }, function(results) {
-      this.mixes = results
-    });
-  } else {
-    this.selectedMixes = []
-  }
-}
-
-MixesController.$inject = ['$scope', '$routeParams', '$location', '$resource']
-
-controllers = angular.module('controllers', [])
-controllers.controller("MixesController", ['$scope', '$routeParams', '$location', MixesController])
+var 
+controllers = angular.module('controllers', []),
+services    = angular.module('services', ['ngResource']);
 
 
-mixlist = [
-  {
-    id: 1,
-    name: 'Supersonic Overdrive',
-    description: 'An uplifting mix of hard trance, hard dance and hard drives.'
-  },
-  {
-    id: 2,
-    name: 'ChilZone',
-    description: 'A downtempo stroll through a dreamy park.'
-  },
-  {
-    id: 3,
-    name: 'Pot Pourri',
-    description: 'There\'s something for everyone in this wild, all-over-the-place mix.'
-  }
-]
+// mixlist = [
+//   {
+//     id: 1,
+//     name: 'Supersonic Overdrive',
+//     description: 'An uplifting mix of hard trance, hard dance and hard drives.'
+//   },
+//   {
+//     id: 2,
+//     name: 'ChilZone',
+//     description: 'A downtempo stroll through a dreamy park.'
+//   },
+//   {
+//     id: 3,
+//     name: 'Pot Pourri',
+//     description: 'There\'s something for everyone in this wild, all-over-the-place mix.'
+//   }
+// ]
