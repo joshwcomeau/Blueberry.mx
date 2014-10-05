@@ -1,0 +1,8 @@
+<h2>Mixes Show</h2>
+
+<ul ng-if="mixes.selectedMixes">
+  <li ng-repeat="mix in mixes.selectedMixes">
+    <h4>{{mix.name}}</h4>
+    <p>{{mix.description}}</p>
+  </li>
+</ul>

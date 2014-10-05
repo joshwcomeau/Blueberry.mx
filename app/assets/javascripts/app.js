@@ -13,7 +13,7 @@ blueberry.config(['$routeProvider', function($routeProvider) {
     controller:   'MixesController',
     controllerAs: 'mixes'
   })
-  .when('/mix/:mixId', {
+  .when('/mixes/:mixId', {
     templateUrl:  'mixes/show.html',
     controller:   'MixController',
     controllerAs: 'mix'
