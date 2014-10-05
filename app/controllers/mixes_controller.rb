@@ -4,4 +4,10 @@ class MixesController < ApplicationController
 
     render json: @mixes
   end
+
+  def show
+    @mix = Mix.find(params[:id])
+    render json: @mix
+
+  end
 end

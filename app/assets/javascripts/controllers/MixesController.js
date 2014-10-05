@@ -1,9 +1,9 @@
-function MixesController($scope, $routeParams, $location, Mix) {
+function MixesController($scope, $routeParams, $location, MixFactory) {
   this.search = function(keywords) {
     $location.path("/").search('keywords', this.keywords);
   }
-  console.log(Mix);
-  this.selectedMixes = Mix.query();
+  console.log(MixFactory);
+  this.selectedMixes = MixFactory.query();
 
   // if ( $routeParams.keywords ) {
   //   Mix.query({
@@ -15,8 +15,9 @@ function MixesController($scope, $routeParams, $location, Mix) {
   //   this.selectedMixes = mixlist;
   // }
 }
-MixesController.$inject = ['$scope', '$routeParams', '$location', 'Mix'];
+
+MixesController.$inject = ['$scope', '$routeParams', '$location', 'MixFactory'];
 
 
 controllers = angular.module('controllers');
-controllers.controller("MixesController", ['$scope', '$routeParams', '$location', 'Mix', MixesController])
+controllers.controller("MixesController", ['$scope', '$routeParams', '$location', 'MixFactory', MixesController])

@@ -19,6 +19,7 @@ gem 'bower-rails'       # Front end package manager
 gem 'foreman'           
 gem 'neat'              # Semantic grid system
 gem 'quiet_assets'      # Most convenient gem ever
+gem 'pry'
 
 group :production, :staging do
   gem 'rails_12factor'

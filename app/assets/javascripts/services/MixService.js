@@ -8,4 +8,4 @@ MixService.$inject = ['$resource']
 
 
 var services = angular.module('services');
-services.factory('Mix', ['$resource', MixService])
+services.factory('MixFactory', ['$resource', MixService])

@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# Start by wiping it clean
+Mix.destroy_all
+
+
+Mix.create!([
+  {
+    id:           1,
+    name:         'Supersonic Overdrive',
+    description:  'An exciting over-the-top mix'
+  }, {
+    id:           2,
+    name:         'ChilZone',
+    description:  'Downtempo, smooth jams'
+  }, {
+    id:           3,
+    name:         'Pot Pourri',
+    description:  'All over the place. wild.'
+  }, {
+    id:           4,
+    name:         'D-d-d-d-d-drop the bass',
+    description:  'Groundshaking bass all over the place'
+  }
+])
